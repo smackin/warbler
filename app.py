@@ -97,7 +97,7 @@ def login():
 
     if form.validate_on_submit():
         user = User.authenticate(form.username.data,
-                                 form.password.data)
+                                form.password.data)
 
         if user:
             do_login(user)
@@ -109,12 +109,12 @@ def login():
     return render_template('users/login.html', form=form)
 
 
-@app.route('/logout')
-def logout():
+@app.route('/logout')   
+def logout_user(): 
     """Handle logout of user."""
-
-    # IMPLEMENT THIS
-
+    do_logout()
+    flash("You have been logged out", "success")
+    return redirect('/')
 
 ##############################################################################
 # General user routes:
